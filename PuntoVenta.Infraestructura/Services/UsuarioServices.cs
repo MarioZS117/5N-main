@@ -25,6 +25,7 @@ public class UsuarioServices : IUsuario
             command.Parameters.Add(new SqlParameter("@Correo", SqlDbType.VarChar) { Value = User.Correo });
             command.Parameters.Add(new SqlParameter("@Password", SqlDbType.VarChar) { Value = User.Password });
             command.Parameters.Add(new SqlParameter("@Usuario", SqlDbType.VarChar) { Value = User.Usuario });
+            command.Parameters.Add(new SqlParameter("@Rol", SqlDbType.Binary) { Value = User.Rol });
 
             try
             {
@@ -92,6 +93,7 @@ public class UsuarioServices : IUsuario
             command.Parameters.Add(new SqlParameter("@Correo", SqlDbType.VarChar) { Value = User.Correo });
             command.Parameters.Add(new SqlParameter("@Password", SqlDbType.VarChar) { Value = User.Password });
             command.Parameters.Add(new SqlParameter("@Usuario", SqlDbType.VarChar) { Value = User.Usuario });
+            command.Parameters.Add(new SqlParameter("@Rol", SqlDbType.Binary) { Value = User.Rol });
 
             try
             {

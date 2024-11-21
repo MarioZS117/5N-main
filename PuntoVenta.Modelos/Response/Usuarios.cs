@@ -12,5 +12,6 @@ namespace PuntoVenta.Models.Response
         public string? Correo { get; set; }
         public string? Password { get; set; }
         public string? Usuario { get; set; }
+        public bool Rol { get; set; }
     }
 }
