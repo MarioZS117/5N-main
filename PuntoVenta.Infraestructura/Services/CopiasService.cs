@@ -125,6 +125,8 @@ public class CopiasService : ICopias
         string connetionString = conexionBD.Database.GetDbConnection().ConnectionString;
         using (var conexion = new SqlConnection(connetionString))
         {
+            Guid llave = Guid.NewGuid();
+            copias.idCopia = llave;
             using var command = new SqlCommand();
             command.Connection = conexion;
             command.CommandText = "dbo.AdministrarCopias";

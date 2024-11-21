@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\5N-main\\PuntoVenta.API\\PuntoVenta.API.csproj": {}
+    "C:\\5N-main\\PuntoVenta.Api\\PuntoVenta.API.csproj": {}
   },
   "projects": {
-    "C:\\5N-main\\PuntoVenta.API\\PuntoVenta.API.csproj": {
+    "C:\\5N-main\\PuntoVenta.Api\\PuntoVenta.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\5N-main\\PuntoVenta.API\\PuntoVenta.API.csproj",
+        "projectUniqueName": "C:\\5N-main\\PuntoVenta.Api\\PuntoVenta.API.csproj",
         "projectName": "PuntoVenta.API",
-        "projectPath": "C:\\5N-main\\PuntoVenta.API\\PuntoVenta.API.csproj",
+        "projectPath": "C:\\5N-main\\PuntoVenta.Api\\PuntoVenta.API.csproj",
         "packagesPath": "C:\\Users\\MARIO\\.nuget\\packages\\",
-        "outputPath": "C:\\5N-main\\PuntoVenta.API\\obj\\",
+        "outputPath": "C:\\5N-main\\PuntoVenta.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\MARIO\\AppData\\Roaming\\NuGet\\NuGet.Config"

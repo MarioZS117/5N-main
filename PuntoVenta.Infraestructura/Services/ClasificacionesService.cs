@@ -122,6 +122,8 @@ public class ClasificacionesService : IClasificaciones
         string connetionString = conexionBD.Database.GetDbConnection().ConnectionString;
         using (var conexion = new SqlConnection(connetionString))
         {
+            Guid llave = Guid.NewGuid();
+            clasificaciones.idClasificacion = llave;
             using var command = new SqlCommand();
             command.Connection = conexion;
             command.CommandText = "dbo.AdministrarClasificaciones";

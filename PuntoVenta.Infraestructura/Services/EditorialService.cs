@@ -123,6 +123,8 @@ public class EditorialService : IEditorial
         string connetionString = conexionBD.Database.GetDbConnection().ConnectionString;
         using (var conexion = new SqlConnection(connetionString))
         {
+            Guid llave = Guid.NewGuid();
+            editorial.idEditorial = llave;
             using var command = new SqlCommand();
             command.Connection = conexion;
             command.CommandText = "dbo.AdministrarEditorial";

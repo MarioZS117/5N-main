@@ -125,6 +125,8 @@ public class GeneroService : IGenero
         string connetionString = conexionBD.Database.GetDbConnection().ConnectionString;
         using (var conexion = new SqlConnection(connetionString))
         {
+            Guid llave = Guid.NewGuid();
+            generos.idGenero = llave;
             using var command = new SqlCommand();
             command.Connection = conexion;
             command.CommandText = "dbo.AdministrarGeneros";
