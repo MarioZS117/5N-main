@@ -1,23 +1,59 @@
+using System.Data;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using PuntoVenta.Models.Response;
 public class UsuarioServices : IUsuario
 {
-    public object ActualizarUsuario(Usuarios User)
+    public async Task<object> ActualizarUsuario(Usuarios User)
     {
-        using (var conexion = new BDBiblioteca())
+        var Response = new SimpleResponse();
+        var conexionBD = new BDBiblioteca();
+        string connetionString = conexionBD.Database.GetDbConnection().ConnectionString;
+        using (var conexion = new SqlConnection(connetionString))
         {
-            var consulta = (from c in conexion.Usuarios where c.IdUsuario == User.IdUsuario select c).FirstOrDefault();
-            if (consulta != null)
+            using var command = new SqlCommand();
+            command.Connection = conexion;
+            command.CommandText = "dbo.AdministrarUsuarios";
+            command.CommandType = CommandType.StoredProcedure;
+            // Agregar parámetros
+            command.Parameters.Add(new SqlParameter("@Op", SqlDbType.VarChar) { Value = "Insertar" });
+            command.Parameters.Add(new SqlParameter("@idUsuario", SqlDbType.UniqueIdentifier) { Value = User.IdUsuario });
+            command.Parameters.Add(new SqlParameter("@Nombre", SqlDbType.VarChar) { Value = User.Nombre });
+            command.Parameters.Add(new SqlParameter("@Apellidos", SqlDbType.VarChar) { Value = User.Apellidos });
+            command.Parameters.Add(new SqlParameter("@Direccion", SqlDbType.VarChar) { Value = User.Direccion });
+            command.Parameters.Add(new SqlParameter("@Telefono", SqlDbType.VarChar) { Value = User.Telefono });
+            command.Parameters.Add(new SqlParameter("@Correo", SqlDbType.VarChar) { Value = User.Correo });
+            command.Parameters.Add(new SqlParameter("@Password", SqlDbType.VarChar) { Value = User.Password });
+            command.Parameters.Add(new SqlParameter("@Usuario", SqlDbType.VarChar) { Value = User.Usuario });
+
+            try
             {
-                consulta.Apellidos = User.Apellidos;
-                consulta.Nombre = User.Nombre;
-                consulta.Direccion = User.Direccion;
-                consulta.Correo = User.Correo;
-                consulta.Password = User.Password;
-                consulta.Telefono = User.Telefono;
-                consulta.Usuario = User.Usuario;
+                conexion.Open();
+
+                var reader = await command.ExecuteReaderAsync();
+                if (reader.HasRows)
+                {
+                    if (await reader.ReadAsync())
+                    {
+                        Response.Exito = reader.GetBoolean(reader.GetOrdinal("Exito"));
+                        Response.Mensaje = reader.GetString(reader.GetOrdinal("Mensaje"));
+
+                    }
+                }
             }
-            return conexion.SaveChanges() == 1;
+            catch (SqlException ex)
+            {
+                Response.Exito = false;
+                Response.Mensaje = ex.Message;
+            }
+            catch (Exception e)
+            {
+                Response.Exito = false;
+                Response.Mensaje = e.Message;
+            }
+            conexion.Close();
         }
+        return Response;
     }
 
     public object EliminarUsuario(Guid IdUser)
@@ -33,15 +69,56 @@ public class UsuarioServices : IUsuario
         }
     }
 
-    public object GuardarUsuario(Usuarios User)
+    public async Task<object> GuardarUsuario(Usuarios User)
     {
-        using (var conexion = new BDBiblioteca())
+        var Response = new SimpleResponse();
+        var conexionBD = new BDBiblioteca();
+        string connetionString = conexionBD.Database.GetDbConnection().ConnectionString;
+        using (var conexion = new SqlConnection(connetionString))
         {
-            Guid llave = Guid.NewGuid();
-            User.IdUsuario = llave;
-            conexion.Usuarios.Add(User);
-            return conexion.SaveChanges() == 1;
+            using var command = new SqlCommand();
+            command.Connection = conexion;
+            command.CommandText = "dbo.AdministrarUsuarios";
+            command.CommandType = CommandType.StoredProcedure;
+            // Agregar parámetros
+            command.Parameters.Add(new SqlParameter("@Op", SqlDbType.VarChar) { Value = "Insertar" });
+            command.Parameters.Add(new SqlParameter("@idUsuario", SqlDbType.UniqueIdentifier) { Value = User.IdUsuario });
+            command.Parameters.Add(new SqlParameter("@Nombre", SqlDbType.VarChar) { Value = User.Nombre });
+            command.Parameters.Add(new SqlParameter("@Apellidos", SqlDbType.VarChar) { Value = User.Apellidos });
+            command.Parameters.Add(new SqlParameter("@Direccion", SqlDbType.VarChar) { Value = User.Direccion });
+            command.Parameters.Add(new SqlParameter("@Telefono", SqlDbType.VarChar) { Value = User.Telefono });
+            command.Parameters.Add(new SqlParameter("@Correo", SqlDbType.VarChar) { Value = User.Correo });
+            command.Parameters.Add(new SqlParameter("@Password", SqlDbType.VarChar) { Value = User.Password });
+            command.Parameters.Add(new SqlParameter("@Usuario", SqlDbType.VarChar) { Value = User.Usuario });
+
+            try
+            {
+                conexion.Open();
+
+                var reader = await command.ExecuteReaderAsync();
+                if (reader.HasRows)
+                {
+                    if (await reader.ReadAsync())
+                    {
+                        Response.Exito = reader.GetBoolean(reader.GetOrdinal("Exito"));
+                        Response.Mensaje = reader.GetString(reader.GetOrdinal("Mensaje"));
+
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                Response.Exito = false;
+                Response.Mensaje = ex.Message;
+            }
+            catch (Exception e)
+            {
+                Response.Exito = false;
+                Response.Mensaje = e.Message;
+            }
+            conexion.Close();
         }
+        return Response;
     }
 
     public object ListaUsuario(string? busqueda)
@@ -55,7 +132,7 @@ public class UsuarioServices : IUsuario
             }
             else
             {
-                ListaUsuarios = (from c in conexion.Usuarios where c.Nombre.Contains(busqueda) select c).ToList();
+                ListaUsuarios = (from c in conexion.Usuarios where c.Usuario.Contains(busqueda) select c).ToList();
             }
 
         }
