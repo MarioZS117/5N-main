@@ -9,6 +9,7 @@ public class BDBiblioteca:DbContext{
     public virtual DbSet<Generos> Generos { get; set; }
     public virtual DbSet<Empleados> Empleados{ get; set; }
     public virtual DbSet<Prestamo> Prestamo{ get; set; }
+    public virtual DbSet<Editorial> Editorial{get;set;}
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (!optionsBuilder.IsConfigured)

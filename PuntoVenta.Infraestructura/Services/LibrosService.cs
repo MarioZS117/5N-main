@@ -103,7 +103,7 @@ public class LibrosService : ILibro
 
     public object ConsultarLibro(string? busqueda)
     {
-          List<Libros> ListaClasificacion = new List<Libros>();
+          List<Libros> ListaLibros = new List<Libros>();
         using (var conexion = new BDBiblioteca())
         {
             if (string.IsNullOrWhiteSpace(busqueda))

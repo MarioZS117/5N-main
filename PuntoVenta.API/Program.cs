@@ -10,6 +10,8 @@ builder.Services.AddTransient<ILibro,LibrosService>();
 builder.Services.AddTransient<IAutor,AutorService>();
 builder.Services.AddTransient<IClasificaciones,ClasificacionesService>();
 builder.Services.AddTransient<IGenero,GeneroService>();
+builder.Services.AddTransient<ICopias,CopiasService>();
+builder.Services.AddTransient<IEditorial,EditorialService>();
 
 
 // Se Agrega el Servicio de Swagger
