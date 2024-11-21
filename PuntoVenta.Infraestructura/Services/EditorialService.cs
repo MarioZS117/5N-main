@@ -99,7 +99,7 @@ public class EditorialService : IEditorial
 
     public object ConsultarEditorial(string? Nombre)
     {
-        List<Editorial> ListaCopias = new List<Editorial>();
+        List<Editorial> ListaEditorial = new List<Editorial>();
         using (var conexion = new BDBiblioteca())
         {
             if (string.IsNullOrWhiteSpace(Nombre))
