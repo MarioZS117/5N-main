@@ -14,27 +14,30 @@ builder.Services.AddTransient<ICopias,CopiasService>();
 builder.Services.AddTransient<IEditorial,EditorialService>();
 
 
-// Se Agrega el Servicio de Swagger
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+// Configuración de CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowLocalhost",
+        policy =>
+        {
+            policy.WithOrigins("http://127.0.0.1:5500") 
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
+});
+//Fin
+
 
 //Agregar el Metodo que me permite trabajar controladores
 builder.Services.AddControllers();
 
+
 var app = builder.Build();
 
-//Mapear los controladores
-app.MapControllers();
+//cambio
+app.UseCors("AllowLocalhost");
 
-// Valida si el codigo esta en modo de pruebas o produccion
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
-
-//Corre la aplicacion
+app.UseAuthorization();
 app.Run();
+
+//Fin
