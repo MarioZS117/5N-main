@@ -21,3 +21,4 @@ C:\5N-main\PuntoVenta.Modelos\obj\Debug\net8.0\PuntoVenta.Modelos.dll
 C:\5N-main\PuntoVenta.Modelos\obj\Debug\net8.0\refint\PuntoVenta.Modelos.dll
 C:\5N-main\PuntoVenta.Modelos\obj\Debug\net8.0\PuntoVenta.Modelos.pdb
 C:\5N-main\PuntoVenta.Modelos\obj\Debug\net8.0\ref\PuntoVenta.Modelos.dll
+C:\5N-main\PuntoVenta.Modelos\obj\Debug\net8.0\PuntoVenta.Modelos.sourcelink.json

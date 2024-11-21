@@ -13,18 +13,18 @@ public class UsuarioController : ControllerBase{
         return Ok(consulta);
     }
     [HttpPost("GuardarUsuarios")]
-    public IActionResult GuardarUsuario(PuntoVenta.Models.Response.Usuarios user){
-        var consulta = _usuarioService.GuardarUsuario(user);
+    public async Task<IActionResult> GuardarUsuario(PuntoVenta.Models.Response.Usuarios user){
+        var consulta = await _usuarioService.GuardarUsuario(user);
         return Ok(consulta);
     }
     [HttpPost("ActualizarUsuarios")]
-    public IActionResult ActualizarUsuario(PuntoVenta.Models.Response.Usuarios user){
-        var consulta = _usuarioService.ActualizarUsuario(user);
+    public async Task<IActionResult> ActualizarUsuario(PuntoVenta.Models.Response.Usuarios user){
+        var consulta = await _usuarioService.ActualizarUsuario(user);
         return Ok(consulta);
     }
     [HttpPost("EliminarUsuarios")]
     public IActionResult EliminarUsuario(Guid Iduser){
-        var consulta = _usuarioService.EliminarUsuario(Iduser);
+        var consulta =  _usuarioService.EliminarUsuario(Iduser);
         return Ok(consulta);
     }
 }

@@ -33,3 +33,4 @@ C:\5N-main\PuntoVenta.Infraestructura\obj\Debug\net8.0\PuntoVenta.Infraestructur
 C:\5N-main\PuntoVenta.Infraestructura\obj\Debug\net8.0\refint\PuntoVenta.Infraestructura.dll
 C:\5N-main\PuntoVenta.Infraestructura\obj\Debug\net8.0\PuntoVenta.Infraestructura.pdb
 C:\5N-main\PuntoVenta.Infraestructura\obj\Debug\net8.0\ref\PuntoVenta.Infraestructura.dll
+C:\5N-main\PuntoVenta.Infraestructura\obj\Debug\net8.0\PuntoVenta.Infraestructura.sourcelink.json

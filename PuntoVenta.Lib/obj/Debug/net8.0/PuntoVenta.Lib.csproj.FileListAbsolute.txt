@@ -29,3 +29,4 @@ C:\5N-main\PuntoVenta.Lib\obj\Debug\net8.0\PuntoVenta.Lib.dll
 C:\5N-main\PuntoVenta.Lib\obj\Debug\net8.0\refint\PuntoVenta.Lib.dll
 C:\5N-main\PuntoVenta.Lib\obj\Debug\net8.0\PuntoVenta.Lib.pdb
 C:\5N-main\PuntoVenta.Lib\obj\Debug\net8.0\ref\PuntoVenta.Lib.dll
+C:\5N-main\PuntoVenta.Lib\obj\Debug\net8.0\PuntoVenta.Lib.sourcelink.json

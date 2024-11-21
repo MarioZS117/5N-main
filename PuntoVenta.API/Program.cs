@@ -28,16 +28,33 @@ builder.Services.AddCors(options =>
 //Fin
 
 
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 //Agregar el Metodo que me permite trabajar controladores
 builder.Services.AddControllers();
 
-
 var app = builder.Build();
+
+//Mapear los controladores
+app.MapControllers();
+
+// Valida si el codigo esta en modo de pruebas o produccion
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+
+//Corre la aplicacion
+app.Run();
 
 //cambio
 app.UseCors("AllowLocalhost");
 
 app.UseAuthorization();
-app.Run();
+
 
 //Fin

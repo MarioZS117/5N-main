@@ -16,7 +16,7 @@ public class UsuarioServices : IUsuario
             command.CommandText = "dbo.AdministrarUsuarios";
             command.CommandType = CommandType.StoredProcedure;
             // Agregar parámetros
-            command.Parameters.Add(new SqlParameter("@Op", SqlDbType.VarChar) { Value = "Insertar" });
+            command.Parameters.Add(new SqlParameter("@Op", SqlDbType.VarChar) { Value = "Actualizar" });
             command.Parameters.Add(new SqlParameter("@idUsuario", SqlDbType.UniqueIdentifier) { Value = User.IdUsuario });
             command.Parameters.Add(new SqlParameter("@Nombre", SqlDbType.VarChar) { Value = User.Nombre });
             command.Parameters.Add(new SqlParameter("@Apellidos", SqlDbType.VarChar) { Value = User.Apellidos });

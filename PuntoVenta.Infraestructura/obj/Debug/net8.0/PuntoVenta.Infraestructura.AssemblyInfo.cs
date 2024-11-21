@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PuntoVenta.Infraestructura")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+86e58124c3b095bc437084a3a2b2406e13d1cd11")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e1093f9530af1d70fb5d7089b6c8187794e5ed79")]
 [assembly: System.Reflection.AssemblyProductAttribute("PuntoVenta.Infraestructura")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PuntoVenta.Infraestructura")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

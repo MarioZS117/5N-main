@@ -175,3 +175,4 @@ C:\5N-main\PuntoVenta.Api\obj\Debug\net8.0\refint\PuntoVenta.API.dll
 C:\5N-main\PuntoVenta.Api\obj\Debug\net8.0\PuntoVenta.API.pdb
 C:\5N-main\PuntoVenta.Api\obj\Debug\net8.0\PuntoVenta.API.genruntimeconfig.cache
 C:\5N-main\PuntoVenta.Api\obj\Debug\net8.0\ref\PuntoVenta.API.dll
+C:\5N-main\PuntoVenta.API\obj\Debug\net8.0\PuntoVenta.API.sourcelink.json
